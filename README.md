@@ -54,15 +54,33 @@ icons) or are Odoo's default pictures:
 Odoo publishes no localisation for the English-speaking islands, Aruba,
 Curaçao, Sint Maarten or Haiti.
 
-## Running it
+## Installing it
+
+Both installers back up and remove an existing Odoo first (asking before
+anything is deleted), then install FeteLABS so it starts with the computer
+and shows up with the Fete Labs icon.
+
+**Zorin OS, Ubuntu, Debian** (run as yourself, not root):
 
 ```sh
-pip install -r requirements.txt phonenumbers
-./odoo-bin -d fetelabs -i base
+curl -fsSLO https://raw.githubusercontent.com/FetePass/fetelabs/fetelabs-19.0/fetelabs/install/install-linux.sh
+bash install-linux.sh
 ```
 
-Postgres 13 or later. Full setup is the upstream
-[installation guide](https://www.odoo.com/documentation/19.0/administration/install/install.html).
+**Windows 10 and 11** (PowerShell, "Run as administrator"):
+
+```powershell
+Invoke-WebRequest https://raw.githubusercontent.com/FetePass/fetelabs/fetelabs-19.0/fetelabs/install/install-windows.ps1 -OutFile install-windows.ps1
+powershell -ExecutionPolicy Bypass -File .\install-windows.ps1
+```
+
+Then open http://localhost:8069, create your company database with the
+master password the installer saved (in your home folder on Linux, on the
+desktop on Windows), and choose your island as the country.
+
+`--keep-odoo` / `-KeepOdoo` installs without touching Odoo. To run it by
+hand instead: `pip install -r requirements.txt phonenumbers`, then
+`./odoo-bin -d fetelabs -i base` against Postgres 13 or later.
 
 ## Keeping up with Odoo
 
