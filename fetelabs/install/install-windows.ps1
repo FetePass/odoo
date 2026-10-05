@@ -27,7 +27,7 @@ param(
   [switch]$KeepOdoo,
   [switch]$Yes,
   [string]$Source = "",
-  [string]$Repo = $(if ($env:FETELABS_REPO) { $env:FETELABS_REPO } else { "https://github.com/FetePass/fetelabs.git" }),
+  [string]$Repo = $(if ($env:FETELABS_REPO) { $env:FETELABS_REPO } else { "https://github.com/FetePass/odoo.git" }),
   [string]$Branch = $(if ($env:FETELABS_BRANCH) { $env:FETELABS_BRANCH } else { "fetelabs-19.0" }),
   [int]$Port = 8069
 )

@@ -19,7 +19,7 @@
 #   "FeteLABS" in the app menu, with the Fete Labs icon
 set -euo pipefail
 
-REPO="${FETELABS_REPO:-https://github.com/FetePass/fetelabs.git}"
+REPO="${FETELABS_REPO:-https://github.com/FetePass/odoo.git}"
 BRANCH="${FETELABS_BRANCH:-fetelabs-19.0}"
 PREFIX=/opt/fetelabs
 CONF_DIR=/etc/fetelabs

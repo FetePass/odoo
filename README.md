@@ -63,14 +63,14 @@ and shows up with the Fete Labs icon.
 **Zorin OS, Ubuntu, Debian** (run as yourself, not root):
 
 ```sh
-curl -fsSLO https://raw.githubusercontent.com/FetePass/fetelabs/fetelabs-19.0/fetelabs/install/install-linux.sh
+curl -fsSLO https://raw.githubusercontent.com/FetePass/odoo/fetelabs-19.0/fetelabs/install/install-linux.sh
 bash install-linux.sh
 ```
 
 **Windows 10 and 11** (PowerShell, "Run as administrator"):
 
 ```powershell
-Invoke-WebRequest https://raw.githubusercontent.com/FetePass/fetelabs/fetelabs-19.0/fetelabs/install/install-windows.ps1 -OutFile install-windows.ps1
+Invoke-WebRequest https://raw.githubusercontent.com/FetePass/odoo/fetelabs-19.0/fetelabs/install/install-windows.ps1 -OutFile install-windows.ps1
 powershell -ExecutionPolicy Bypass -File .\install-windows.ps1
 ```
 
