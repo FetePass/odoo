@@ -20,8 +20,9 @@ It is a fork of [Odoo](https://github.com/odoo/odoo) Community 19.0, made by
   [`fetelabs/modules.json`](fetelabs/modules.json).
 * **The FeteLABS name and icon** on the login page, the browser tab, the
   installable app, emails, the customer portal, receipts and the point of
-  sale's customer display. Four small addons do it, `fetelabs_branding` and
-  its `_mail`, `_portal` and `_pos` bridges, and they install themselves.
+  sale's customer display. Five small addons do it, `fetelabs_branding` and
+  its `_mail`, `_portal`, `_website` and `_pos` bridges, and they install
+  themselves.
 * **No Enterprise upsell.** Apps and settings that only exist in Odoo
   Enterprise are not offered.
 
