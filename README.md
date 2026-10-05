@@ -67,6 +67,13 @@ curl -fsSLO https://raw.githubusercontent.com/FetePass/odoo/fetelabs-19.0/fetela
 bash install-linux.sh
 ```
 
+**Mac** (macOS 12 or later, in Terminal):
+
+```sh
+curl -fsSLO https://raw.githubusercontent.com/FetePass/odoo/fetelabs-19.0/fetelabs/install/install-mac.sh
+bash install-mac.sh
+```
+
 **Windows 10 and 11** (PowerShell, "Run as administrator"):
 
 ```powershell

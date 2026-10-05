@@ -66,7 +66,7 @@ pg() { sudo -u postgres psql -X -q -At "$@"; }
 # ---------------------------------------------------------------- old Odoo
 
 remove_odoo() {
-  say "Looking for an Odoo installed from source"
+  say "Looking for an old Odoo"
 
   # 1. Anything running.
   local procs
@@ -86,14 +86,21 @@ remove_odoo() {
   # found even when systemd is not the one answering.
   local path unit
   while IFS= read -r path; do
+    [ -f "$path" ] || continue
     unit="$(basename "$path")"
+    # A unit the odoo package installed goes with the package (step 6).
+    if dpkg -S "$path" >/dev/null 2>&1; then
+      sudo systemctl disable --now "$unit" >/dev/null 2>&1 || true
+      continue
+    fi
     if ask "Stop, disable and delete the service $unit ($path)?"; then
       sudo systemctl disable --now "$unit" >/dev/null 2>&1 || true
-      backup_dir; cp "$path" "$BACKUP/"; sudo rm -f "$path"
+      backup_dir; cp "$path" "$BACKUP/" || true; sudo rm -f "$path"
       sudo systemctl daemon-reload >/dev/null 2>&1 || true
     fi
   done < <(find /etc/systemd/system /lib/systemd/system /usr/lib/systemd/system -maxdepth 1 \
-             \( -iname 'odoo*.service' -o -iname 'openerp*.service' \) -type f 2>/dev/null | sort -u)
+             \( -iname 'odoo*.service' -o -iname 'openerp*.service' \) -type f \
+             -exec readlink -f {} \; 2>/dev/null | sort -u)
 
   # 3. Databases. Postgres stays: FeteLABS uses it too.
   if command -v pg_lsclusters >/dev/null 2>&1; then
@@ -149,6 +156,21 @@ remove_odoo() {
     if ask "Delete $dir?"; then sudo rm -rf "$dir"; fi
   done < <(find "$MY_HOME" /opt /srv /usr/local -maxdepth 5 -name odoo-bin -type f 2>/dev/null)
 
+  # 6. Odoo installed as a package (the .deb from odoo.com or its apt
+  # repository). Its databases and files were backed up above.
+  local pkg
+  for pkg in odoo odoo-server openerp; do
+    if dpkg-query -W -f='${Status}' "$pkg" 2>/dev/null | grep -q 'install ok installed'; then
+      note "The $pkg package is installed ($(dpkg-query -W -f='${Version}' "$pkg"))."
+      if ask "Remove the $pkg package?"; then
+        sudo systemctl disable --now odoo >/dev/null 2>&1 || true
+        sudo apt-get purge -y -qq "$pkg" >/dev/null
+        sudo rm -f /etc/apt/sources.list.d/odoo*.list
+        note "Removed."
+      fi
+    fi
+  done
+
   if [ -d "$BACKUP" ]; then
     sudo chown -R "$ME": "$BACKUP"
     note "Backups are in $BACKUP"
@@ -201,7 +223,12 @@ install_program() {
   say "Installing its Python packages (a few minutes)"
   [ -x "$PREFIX/venv/bin/python" ] || sudo python3 -m venv "$PREFIX/venv"
   sudo "$PREFIX/venv/bin/pip" install -q --upgrade pip wheel
-  sudo "$PREFIX/venv/bin/pip" install -q -r "$PREFIX/src/requirements.txt" phonenumbers
+  # reportlab 4 (Python 3.12 and later) draws barcodes with a separate
+  # package that 3.10 and 3.11 have built in.
+  local extra="phonenumbers"
+  "$PREFIX/venv/bin/python" -c 'import sys; sys.exit(sys.version_info < (3, 12))' && extra="$extra rl-renderPM"
+  # shellcheck disable=SC2086
+  sudo "$PREFIX/venv/bin/pip" install -q -r "$PREFIX/src/requirements.txt" $extra
 }
 
 configure() {
