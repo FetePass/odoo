@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- The name an installed app carries on the home screen
+         (web/controllers/webmanifest.py reads this parameter). -->
+    <function model="ir.config_parameter" name="set_param" eval="('web.web_app_name', 'FeteLABS')"/>
+</odoo>

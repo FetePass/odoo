@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="layout" inherit_id="web.layout" name="FeteLABS: page title and icon">
+        <xpath expr="//title" position="attributes">
+            <attribute name="t-esc">title or 'FeteLABS'</attribute>
+        </xpath>
+        <xpath expr="//link[@rel='shortcut icon']" position="after">
+            <link rel="icon" type="image/svg+xml" href="/fetelabs_branding/static/img/fetelabs-icon.svg"/>
+        </xpath>
+    </template>
+
+    <!-- "Powered by" on the portal, the website, surveys and the shop. -->
+    <template id="brand_promotion_message" inherit_id="web.brand_promotion_message" name="FeteLABS: powered by">
+        <xpath expr="//t[@t-set='odoo_logo']" position="replace">
+            <t t-set="odoo_logo">
+                <a target="_blank" href="https://fetelabs.ai" class="badge text-bg-light">
+                    <img alt="" src="/fetelabs_branding/static/img/fetelabs-icon.svg"
+                        width="16" height="16"
+                        style="width: auto; height: 1.1em; vertical-align: -0.15em;"/>
+                    FeteLABS
+                </a>
+            </t>
+        </xpath>
+        <!-- Odoo's own slogans ("Create a free website", "The #1 Open Source
+             eCommerce") are dropped: the line says who made it, nothing more. -->
+        <xpath expr="//t[@t-out]" position="replace">
+            <t t-out="final_message % (odoo_logo, '')"/>
+        </xpath>
+    </template>
+
+    <template id="login_layout" inherit_id="web.login_layout" name="FeteLABS: login footer">
+        <xpath expr="//a[contains(@href, 'utm_medium=auth')]" position="replace">
+            <a href="https://fetelabs.ai" target="_blank">Powered by <span>FeteLABS</span></a>
+        </xpath>
+    </template>
+</odoo>

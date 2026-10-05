@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- The system account that posts automatic messages. -->
+    <record id="base.partner_root" model="res.partner">
+        <field name="name">FeteLABS Bot</field>
+        <field name="image_1920" type="base64" file="fetelabs_branding_mail/data/fetelabs-bot.png"/>
+    </record>
+</odoo>

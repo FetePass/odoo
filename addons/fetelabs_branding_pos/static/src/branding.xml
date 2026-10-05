@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <!-- The mark on the customer display: the FeteLABS icon and name. -->
+    <t t-name="fetelabs_branding_pos.OdooLogo" t-inherit="point_of_sale.OdooLogo" t-inherit-mode="extension">
+        <xpath expr="//div" position="replace">
+            <div t-attf-class="d-inline-flex align-items-center gap-1 {{ props.class }}">
+                <svg style="height: 1.4em; width: 1.4em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<rect width="200" height="200" rx="46" fill="#1FB5A8"/>
+<g transform="translate(3.8 -6.76) scale(1.02)"><g transform="rotate(-12 100 110)">
+  <path d="M70 38V160A30 30 0 0 0 130 160V38Z" fill="#0E0818" stroke="#0E0818" stroke-width="9" stroke-linejoin="round"/>
+  <rect x="64" y="30" width="72" height="12" rx="6" fill="#0E0818" stroke="#0E0818" stroke-width="9"/>
+  <defs><clipPath id="flpos"><path d="M70 38V160A30 30 0 0 0 130 160V38Z"/></clipPath></defs>
+  <path d="M70 38V160A30 30 0 0 0 130 160V38Z" fill="#0E0818"/>
+  <g clip-path="url(#flpos)">
+    <path d="M44 100q14-16 28 0t28 0t28 0t28 0t28 0V210H44Z" fill="#1FB5A8"/>
+    <path d="M30 132q14-16 28 0t28 0t28 0t28 0t28 0V210H30Z" fill="#9BE22D"/>
+    <path d="M44 162q14-16 28 0t28 0t28 0t28 0t28 0V210H44Z" fill="#FF2E88"/>
+  </g>
+  <circle cx="90" cy="74" r="5" fill="#9BE22D" clip-path="url(#flpos)"/>
+  <rect x="64" y="30" width="72" height="12" rx="6" fill="#FFF6E6"/>
+  <path d="M82 56V84M82 96V102" stroke="#FFF6E6" stroke-width="5" stroke-linecap="round"/>
+</g></g></svg>
+                <b t-attf-style="color: {{ props.monochrome ? '#FFF' : 'inherit' }}">FeteLABS</b>
+            </div>
+        </xpath>
+    </t>
+    <t t-name="fetelabs_branding_pos.OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('footer-powered-by')]/span" position="replace">
+            <span>Powered by <b>FeteLABS</b></span>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_record_sidebar" inherit_id="portal.portal_record_sidebar" name="FeteLABS: portal sidebar">
+        <xpath expr="//a[contains(@href, 'utm_medium=portal')]" position="replace">
+            <a target="_blank" href="https://fetelabs.ai" title="FeteLABS"><img src="/web/static/img/logo.png" alt="FeteLABS" height="15"/></a>
+        </xpath>
+    </template>
+</odoo>

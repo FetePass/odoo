@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><title>FeteLABS</title>
-<rect width="200" height="200" rx="46" fill="#1FB5A8"/>
-<g transform="translate(3.8 -6.76) scale(1.02)"><g transform="rotate(-12 100 110)">
+<rect width="200" height="200" fill="#1FB5A8"/>
+<g transform="translate(22 12) scale(0.8)"><g transform="rotate(-12 100 110)">
   <path d="M70 38V160A30 30 0 0 0 130 160V38Z" fill="#0E0818" stroke="#0E0818" stroke-width="9" stroke-linejoin="round"/>
   <rect x="64" y="30" width="72" height="12" rx="6" fill="#0E0818" stroke="#0E0818" stroke-width="9"/>
-  <defs><clipPath id="fli"><path d="M70 38V160A30 30 0 0 0 130 160V38Z"/></clipPath></defs>
+  <defs><clipPath id="fls"><path d="M70 38V160A30 30 0 0 0 130 160V38Z"/></clipPath></defs>
   <path d="M70 38V160A30 30 0 0 0 130 160V38Z" fill="#0E0818"/>
-  <g clip-path="url(#fli)">
+  <g clip-path="url(#fls)">
     <path d="M44 100q14-16 28 0t28 0t28 0t28 0t28 0V210H44Z" fill="#1FB5A8"/>
     <path d="M30 132q14-16 28 0t28 0t28 0t28 0t28 0V210H30Z" fill="#9BE22D"/>
     <path d="M44 162q14-16 28 0t28 0t28 0t28 0t28 0V210H44Z" fill="#FF2E88"/>
   </g>
-  <circle cx="90" cy="74" r="5" fill="#9BE22D" clip-path="url(#fli)"/>
+  <circle cx="90" cy="74" r="5" fill="#9BE22D" clip-path="url(#fls)"/>
   <rect x="64" y="30" width="72" height="12" rx="6" fill="#FFF6E6"/>
   <path d="M82 56V84M82 96V102" stroke="#FFF6E6" stroke-width="5" stroke-linecap="round"/>
 </g></g></svg>

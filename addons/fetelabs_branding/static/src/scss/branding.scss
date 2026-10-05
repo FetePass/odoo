@@ -1,0 +1,6 @@
+// Settings that only switch on an Odoo Enterprise app open an "Upgrade"
+// dialog. FeteLABS cannot install those apps, so the setting is not shown.
+.o_setting_box:has(.o_field_upgrade_boolean),
+.o_setting_container .o_setting_box:has(.o_field_upgrade_boolean) {
+    display: none !important;
+}

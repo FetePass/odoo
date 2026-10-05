@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="show_website_info" inherit_id="website.show_website_info" name="FeteLABS: website information">
+        <xpath expr="//small[@groups='base.group_no_one']" position="replace">
+            <small groups="base.group_no_one">FeteLABS, built on Odoo <t t-out="version.get('server_version')"/></small>
+        </xpath>
+        <xpath expr="//a[@href='https://www.odoo.com']/.." position="replace">
+            <p>
+                Information about the <t t-out="res_company.name"/> instance of
+                <a class="o_translate_inline" target="_blank" href="https://fetelabs.ai">FeteLABS</a>.
+            </p>
+        </xpath>
+    </template>
+</odoo>
