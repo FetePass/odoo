@@ -1,0 +1,73 @@
+{
+  "about": "Which Odoo Community modules FeteLABS ships. fetelabs/prune.py reads this file. Every l10n_* module not listed under localisations is removed, every module under remove is removed, and anything that depends on a removed module goes with it. Generic apps (accounting, sales, point of sale, events, inventory, website, HR and the rest) stay because they work anywhere.",
+  "upstream": "odoo/odoo 19.0 (Community, LGPL-3)",
+
+  "localisations": {
+    "l10n_do": "Dominican Republic: chart of accounts, ITBIS taxes, NCF fiscal documents",
+    "l10n_us": "Puerto Rico and the US Virgin Islands (US jurisdictions)",
+    "l10n_us_account": "Puerto Rico and the US Virgin Islands: US chart and check printing",
+    "l10n_fr": "Guadeloupe, Martinique, St. Barth and French St. Martin (base for the French overseas modules)",
+    "l10n_fr_account": "French chart and taxes; required by Guadeloupe and Martinique",
+    "l10n_fr_facturx_chorus_pro": "French public-sector e-invoicing, which applies in the overseas departments",
+    "l10n_fr_pdp": "The French e-invoicing reform (from September 2026) covers businesses in Guadeloupe and Martinique",
+    "l10n_fr_pdp_pos": "The French e-invoicing reform at the point of sale",
+    "l10n_fr_pos_cert": "French certified-till rules for point of sale (applies in the overseas departments)",
+    "l10n_fr_hr_holidays": "French leave rules for the French islands",
+    "l10n_fr_hr_work_entry_holidays": "French leave rules for the French islands",
+    "l10n_gp": "Guadeloupe: overseas-department tax rates",
+    "l10n_mq": "Martinique: overseas-department tax rates",
+    "l10n_nl": "Bonaire, Saba and St. Eustatius (the Caribbean Netherlands are part of the Netherlands)",
+    "l10n_account_withholding_tax": "Generic withholding tax, used by several island tax systems",
+    "l10n_account_withholding_tax_pos": "Generic withholding tax at the point of sale"
+  },
+
+  "no_localisation": "Every other island (Anguilla, Antigua and Barbuda, Aruba, the Bahamas, Barbados, Bermuda, the British Virgin Islands, the Cayman Islands, Curaçao, Dominica, Grenada, Haiti, Jamaica, Montserrat, St. Kitts and Nevis, St. Lucia, St. Vincent and the Grenadines, Sint Maarten, Trinidad and Tobago, the Turks and Caicos) has no Odoo localisation. They use the generic chart of accounts with their own VAT or sales tax set up as taxes.",
+
+  "remove": {
+    "payment_aps": "Amazon Payment Services: Middle East only",
+    "payment_asiapay": "AsiaPay: Asia only",
+    "payment_buckaroo": "Buckaroo: Benelux only",
+    "payment_dpo": "DPO: Africa only",
+    "payment_ecpay": "ECPay: Taiwan only",
+    "payment_flutterwave": "Flutterwave: Africa only",
+    "payment_iyzico": "iyzico: Türkiye only",
+    "payment_mercado_pago": "Mercado Pago: South America and Mexico only",
+    "payment_nuvei": "Nuvei (Odoo integration): Latin American and Canadian currencies only",
+    "payment_paymob": "Paymob: Egypt and the Gulf only",
+    "payment_payu": "PayU: India and Central Europe only",
+    "payment_razorpay": "Razorpay: India only",
+    "payment_redsys": "Redsys: Spain only",
+    "payment_toss_payments": "Toss Payments: South Korea only",
+    "payment_worldline": "Worldline: mainland Europe only",
+    "payment_xendit": "Xendit: Southeast Asia only",
+
+    "pos_cashdro": "CashDro cash machines: Spain",
+    "pos_cashmatic": "Cashmatic cash machines: Italy",
+    "pos_dpopay": "DPO Pay terminals: Africa",
+    "pos_glory_cash": "Glory cash recyclers: Japan",
+    "pos_mercado_pago": "Mercado Pago terminals: South America and Mexico",
+    "pos_pine_labs": "Pine Labs terminals: India",
+    "pos_qfpay": "QFPay terminals: Hong Kong",
+    "pos_razorpay": "Razorpay terminals: India",
+    "pos_safaricom": "M-Pesa via Safaricom: Kenya",
+    "pos_viva_com": "Viva.com terminals: mainland Europe",
+    "pos_self_order_pine_labs": "Pine Labs self-order kiosks: India",
+    "pos_self_order_qfpay": "QFPay self-order kiosks: Hong Kong",
+    "pos_self_order_razorpay": "Razorpay self-order kiosks: India",
+    "pos_self_order_viva_com": "Viva.com self-order kiosks: mainland Europe",
+
+    "delivery_mondialrelay": "Mondial Relay pickup points: mainland France and Benelux",
+    "website_sale_mondialrelay": "Mondial Relay pickup points on the shop: mainland France and Benelux",
+
+    "l10n_din5008": "German business-letter format",
+    "l10n_din5008_expense": "German business-letter format",
+    "l10n_din5008_purchase": "German business-letter format",
+    "l10n_din5008_repair": "German business-letter format",
+    "l10n_din5008_sale": "German business-letter format",
+    "l10n_din5008_stock": "German business-letter format",
+
+    "transifex": "Links to Odoo's own translation project; not a FeteLABS feature"
+  },
+
+  "kept_integrations_note": "Payment providers kept: Adyen, Authorize.net (Puerto Rico, US Virgin Islands), Mollie (euro islands), PayPal, Stripe, wire transfer and cash. Check that a provider takes merchants on a given island before offering it there."
+}
